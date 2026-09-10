@@ -1,0 +1,147 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+   
+}
+
+html{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-primary-color);
+    color: var(--text-primary-color);
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+
+
+}
+
+main section{
+    width: 100%;
+    height: 100%;
+   display: flex;
+   gap: var(--gutter-lg);
+    padding:var(--padding-2xl);
+}
+
+main .btn{
+    padding: var(--padding-sm) var(--padding-lg);
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius-md);
+    background-color: var(--bg-active-color);
+    cursor: pointer;
+
+}
+
+#image{
+    color: var(--text-active-color);
+}
+#reset-btn{
+    background-color: var(--bg-danger-color);
+    color: var(--text-primary-color);
+}
+
+
+#download-btn{
+    background-color:var(--bg-success-color);
+    color: var(--text-primary-color);
+}
+
+main section .top{
+    display: flex;
+    align-items: center;
+    gap: var(--gutter-md);
+   
+   
+}
+
+main section .left{
+        width: 70%;
+        height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+    align-items: center;
+
+}
+main section .right{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+    width: 30%;
+    background-color:var(--bg-secondry-color);
+    padding: var(--padding-lg);
+    border-radius: var(--border-radius-2xl);
+}
+
+main section .right .filters{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+
+}
+
+
+main section .right .filter{
+    width: 100%;
+}
+
+main section .right .filter input{
+    margin-top:var(--margin-sm);
+    width: 100%;
+    outline: none;
+    appearance: none;
+}
+
+main section .right .filter input::-webkit-slider-runnable-track{
+    background-color: var(--bg-active-color);
+    height: 3px;
+    border-radius: var(--border-radius-sm);
+}
+
+main section .right .filter input::-webkit-slider-thumb{
+    cursor: pointer;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    margin: -8.5px;
+}
+
+main section .left .bottom{
+    background-color:var(--bg-secondry-color);
+    width: 100%;
+    flex-grow: 1;
+    padding: var(--padding-2xl);
+  
+   border-radius: var(--border-radius-2xl);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    
+}
+
+main section .left .bottom .placeholder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+}
+
+main section .left .bottom .placeholder i{
+    font-size: 8rem;
+}
+
+main section .left .bottom .placeholder p{
+    font-size: var(--font-size-2xl);
+}

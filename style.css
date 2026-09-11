@@ -182,3 +182,9 @@ canvas {
     max-height: 100%;
     object-fit: contain;
 }
+
+.presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter-sm);
+}

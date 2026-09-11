@@ -80,6 +80,7 @@ const placeholder = document.querySelector(".placeholder");
 
 const resetbtn = document.querySelector("#reset-btn");
 const downloadbtn = document.querySelector("#download-btn");
+const presetContainer = document.querySelector(".presets")
 let image = null;
 
 // Yeh function ek naya filter control banata hai, jisme range slider aur label add hota hai.
@@ -270,4 +271,103 @@ downloadbtn.addEventListener("click",()=>{
     link.href=imageCanvas.toDataURL();
     link.click();
 
+});
+
+
+// object conatining presets
+const presets = {
+    original: {
+        brightness: 100,
+        contrast: 100,
+        saturate: 100,
+        huerotate: 0,
+        blur: 0,
+        grayscale: 0,
+        Sepia: 0,
+        opacity: 100,
+        invert: 0
+    },
+
+    vintage: {
+        brightness: 110,
+        contrast: 120,
+        saturate: 80,
+        huerotate: 0,
+        blur: 0,
+        grayscale: 0,
+        Sepia: 40,
+        opacity: 100,
+        invert: 0
+    },
+
+    blackAndWhite: {
+        brightness: 100,
+        contrast: 120,
+        saturate: 0,
+        huerotate: 0,
+        blur: 0,
+        grayscale: 100,
+        Sepia: 0,
+        opacity: 100,
+        invert: 0
+    },
+
+    dramatic: {
+        brightness: 90,
+        contrast: 150,
+        saturate: 120,
+        huerotate: 0,
+        blur: 0,
+        grayscale: 10,
+        Sepia: 0,
+        opacity: 100,
+        invert: 0
+    },
+
+    faded: {
+        brightness: 110,
+        contrast: 80,
+        saturate: 70,
+        huerotate: 0,
+        blur: 0,
+        grayscale: 0,
+        Sepia: 10,
+        opacity: 70,
+        invert: 0
+    }
+};
+
+Object.keys(presets).forEach(presetName => {
+
+    const presetbutton = document.createElement("button");
+
+    presetbutton.classList.add("btn");
+    presetbutton.innerText = presetName;
+
+    presetbutton.addEventListener("click", () => {
+
+        // preset ki values filters object mein daal do
+        Object.keys(presets[presetName]).forEach(filterName => {
+
+            filters[filterName].value = presets[presetName][filterName];
+
+        });
+
+        // sliders ko bhi new values dikhao
+        Object.keys(filters).forEach(filterName => {
+
+            const slider = document.querySelector(`#${filterName}`);
+
+            if (slider) {
+                slider.value = filters[filterName].value;
+            }
+
+        });
+
+        // image par preset apply karo
+        applyFilters();
+
+    });
+
+    presetContainer.appendChild(presetbutton);
 });

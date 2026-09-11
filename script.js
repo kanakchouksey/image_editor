@@ -79,6 +79,7 @@ const Canvasctx = imageCanvas.getContext("2d");
 const placeholder = document.querySelector(".placeholder");
 
 const resetbtn = document.querySelector("#reset-btn");
+const downloadbtn = document.querySelector("#download-btn");
 let image = null;
 
 // Yeh function ek naya filter control banata hai, jisme range slider aur label add hota hai.
@@ -259,5 +260,14 @@ applyFilters();
 filtersdiv.innerHTML="";
 
 createfilters();
+
+});
+
+
+downloadbtn.addEventListener("click",()=>{
+    const link = document.createElement("a");
+    link.download="edited-image";
+    link.href=imageCanvas.toDataURL();
+    link.click();
 
 });
